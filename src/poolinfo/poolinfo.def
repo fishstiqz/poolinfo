@@ -1,0 +1,9 @@
+LIBRARY	"poolinfo"
+VERSION 0.1
+EXPORTS
+    DebugExtensionInitialize PRIVATE
+    DebugExtensionUninitialize PRIVATE
+    poolpage
+    poollist
+    poolinfo
+    poolchunk
