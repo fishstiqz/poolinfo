@@ -181,7 +181,7 @@ Lookaside[17]: size=180, fffff8002e119aa0
 
 ### Display contents of a pool page
 
-This is much like the build-in !pool command but a bit easier to read at a glance.
+This is much like the build-in *!pool* command but a bit easier to read at a glance.
 
 ```
 kd> !poolpage ffffc0000b94fa50
