@@ -32,6 +32,8 @@ typedef struct _CMD_CTX
     // os versioning stuff
     ULONG                   osMajor;
     ULONG                   osMinor;
+    ULONG                   osFree;
+    ULONG                   osBuild;
     BOOL                    b64BitTarget;
     ULONG                   pointerLen;
     ULONG                   poolBlockSize;

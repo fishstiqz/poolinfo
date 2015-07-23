@@ -194,7 +194,13 @@ POOL_DESC *GetNonPagedPools(PCMD_CTX ctx, PDWORD numPools)
         // uni-processor: read from nt!PoolVector[0]
         kVectorBase = GetExpression("nt!PoolVector");
         numDescs = 1;
-        if (ctx->osMajor >= 6 && ctx->osMinor >= 2)
+
+        // we cannot trust osMinor on Windows 8.1 and above thanks to 
+        // the deprecation of GetVersionEx.. which I assume dbgeng must be using
+        // given that it returns the wrong info for 8.1...
+        // However, the build number is returned correctly.
+        // Any build number >= 9200 is windows 8+
+        if (ctx->osBuild >= 9200)
             numDescs++;
         
         // read the descriptors pointer 

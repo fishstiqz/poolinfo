@@ -103,13 +103,15 @@ HRESULT InitCmdCtx(PCMD_CTX ctx, PDEBUG_CLIENT4 pClient)
 
     // whats the platform?
     ULONG platformId;
-    ret = ctx->pDebugControl->GetSystemVersionValues(&platformId, &ctx->osMajor, &ctx->osMinor, NULL, NULL);
+    ret = ctx->pDebugControl->GetSystemVersionValues(&platformId, &ctx->osMajor, &ctx->osMinor, &ctx->osFree, &ctx->osBuild);
     if (FAILED(ret))
     {
         dprintf("GetSystemVersionValues failed");
         ReleaseCmdCtx(ctx);
         return ret;
     }
+
+    DEBUGPRINT("OS Detected: %d.%d.%d Free=%u\n", ctx->osMajor, ctx->osMinor, ctx->osBuild, (ctx->osFree == 0xF));
     
     ctx->poolInUse = (ctx->osMajor <= 5 ? POOL_INUSE_XP : POOL_INUSE);
 
