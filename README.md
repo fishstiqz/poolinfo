@@ -209,7 +209,7 @@ walking pool page @ ffffc0000b94f000
 
 ### Lookup a particular chunk
 
-Example of a freed chunk in ListHeads
+Example of a free chunk in ListHeads
 
 ```
 kd> !poolchunk ffffe000c21a1f90
@@ -218,7 +218,7 @@ chunk appears to be free, searching descriptors...
 ffffe000c21a1f90: #1 in ListHeads[01] in pool NonPagedPoolNx[0] (fffff8002e100d80)
 ```
 
-Example of a freed chunk on a Lookaside. 
+Example of a free chunk on a Lookaside. 
 
 ```
 kd> !poolchunk ffffe000c02a3c20
