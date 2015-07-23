@@ -207,4 +207,31 @@ walking pool page @ ffffc0000b94f000
  ffffc0000b94fda0: InUse 0260 (026)    01D0 (01D)           01       03 FMfn
 ```
 
+### Lookup a particular chunk
+
+Example of a freed chunk in ListHeads
+
+```
+kd> !poolchunk ffffe000c21a1f90
+ffffe000c21a1f90: size:020 prev:0E0 index:00 type:00 tag:Free
+chunk appears to be free, searching descriptors...
+ffffe000c21a1f90: #1 in ListHeads[01] in pool NonPagedPoolNx[0] (fffff8002e100d80)
+```
+
+Example of a freed chunk on a Lookaside. **NOTE** One day i'll add support to look through the lookasides as well...
+
+```
+kd> !poolchunk ffffc0000b94fa40
+ffffc0000b94fa40: size:010 prev:070 index:01 type:00 tag:Free
+chunk appears to be free, searching descriptors...
+Failed to locate ffffc0000b94fa40
+```
+
+Example of an allocated chunk:
+
+```
+kd> !poolchunk ffffe000c21a1eb0
+ffffe000c21a1eb0: size:0E0 prev:0E0 index:00 type:02 tag:EtwR
+ffffe000c21a1eb0 is InUse on NonPagedPoolNx[0], page: ffffe000c21a1000
+```
 
