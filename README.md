@@ -218,13 +218,13 @@ chunk appears to be free, searching descriptors...
 ffffe000c21a1f90: #1 in ListHeads[01] in pool NonPagedPoolNx[0] (fffff8002e100d80)
 ```
 
-Example of a freed chunk on a Lookaside. **NOTE** One day i'll add support to look through the lookasides as well...
+Example of a freed chunk on a Lookaside. 
 
 ```
-kd> !poolchunk ffffc0000b94fa40
-ffffc0000b94fa40: size:010 prev:070 index:01 type:00 tag:Free
+kd> !poolchunk ffffe000c02a3c20
+ffffe000c02a3c20: size:150 prev:030 index:00 type:04 tag:File
 chunk appears to be free, searching descriptors...
-Failed to locate ffffc0000b94fa40
+ffffe000c02a3c20: #11 in NonPagedPoolNx Lookaside[14] (size=150) at fffff8002e118180
 ```
 
 Example of an allocated chunk:
